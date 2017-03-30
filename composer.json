@@ -1,0 +1,21 @@
+{
+    "name": "soufraz/quiz-in-session",
+    "description": "A simple php package quiz core that allows the creation of questions, alternatives and choice of answers in a very easy way.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael SOufraz",
+            "email": "soufraz@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Demo\\": "src",
+            "Demo\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=5.3"
+    }
+}
