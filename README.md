@@ -49,7 +49,11 @@ Getting all data to save where you want
 ```
 
 ### Used resources
+Boilerplate composer package
 https://github.com/stilliard/composer-package-boilerplate
+
+ScallioXTX 
+https://www.sitepoint.com/community/t/phpunit-testing-cookies-and-sessions/36557
 
 ### License
 
