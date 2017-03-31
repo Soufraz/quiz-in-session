@@ -54,7 +54,8 @@ Adding alternatives to created questions
             ]
         ];
         
-        $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
+        $quiz = new Quiz();
+        $quiz->addAlternativesToQuestion($data['question_id'], $data);
 ```
 
 LET'S PLAY!
