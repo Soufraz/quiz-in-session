@@ -50,6 +50,52 @@ class QuizTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($quiz['questions']);
     }
 
+    public function testAddAlternativesToQuestions()
+    {
+
+        // Mocking a question
+        $data = [
+            'question_id' => 10,
+            'alternatives' => [
+                'five',
+                'six',
+                'seven',
+            ]
+        ];
+
+        $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
+
+        // Mocking another question
+        $data = [
+            'question_id' => 20,
+            'alternatives' => [
+                '1993',
+                '1994',
+                '1995',
+            ]
+        ];
+
+        $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
+
+        // Mocking one more question
+        $data = [
+            'question_id' => 30,
+            'alternatives' => [
+                'no',
+                'yes',
+                'i don\'t know',
+                'they both became rich.. so i don\'t care',
+            ]
+        ];
+
+        $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
+
+        $quiz = $this->quiz->get();
+        $totalQuestions = count($quiz['questions']);
+        $this->assertEquals($totalQuestions, 3);
+        
+    }
+
     public function testGetQuiz()
     {
         $this->assertNotEmpty($this->quiz->get());

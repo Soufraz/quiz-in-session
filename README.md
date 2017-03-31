@@ -42,7 +42,7 @@ Adding questions to created quiz
         $quiz->addQuestions($data);
 ```
 
-Adding alternatives to created question
+Adding alternatives to created questions
 ```
 
 ```
