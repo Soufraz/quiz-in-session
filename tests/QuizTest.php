@@ -27,7 +27,30 @@ class QuizTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($this->quiz->get());
     }
 
-    public function testGetAllQuizzes()
+    public function testAddQuestionsToQuiz()
+    {
+        $data = [
+            [
+                'id' => 10,
+                'title' => 'How many continents are there on earth?'
+            ],
+            [
+                'id' => 20,
+                'title' => 'When was php released?'
+            ],
+            [
+                'id' => 30,
+                'title' => 'Bill Gates really stolen a Steve Jobs idea?'
+            ]
+        ];
+
+        $this->quiz->addQuestions($data);
+
+        $quiz = $this->quiz->get();
+        $this->assertNotEmpty($quiz['questions']);
+    }
+
+    public function testGetQuiz()
     {
         $this->assertNotEmpty($this->quiz->get());
     }

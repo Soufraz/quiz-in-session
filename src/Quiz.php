@@ -12,6 +12,14 @@ class Quiz
         SessionService::set('quiz', $data);
     }
 
+    public function addQuestions($questions)
+    {
+        $quiz = SessionService::get('quiz');
+        $quiz['questions'] = $questions;
+
+        SessionService::set('quiz', $quiz);
+    }
+
     public function get()
     {
         return SessionService::get('quiz');

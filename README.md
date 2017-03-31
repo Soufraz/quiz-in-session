@@ -13,12 +13,33 @@ composer require soufraz/quiz-in-session dev-master
 
 Creating quiz
 ```
-
+        $data = [
+            'title' => 'The first quiz of all'
+        ];
+        
+        $quiz = new Quiz();
+        $quiz->create($data);
 ```
 
 Adding questions to created quiz
 ```
-
+        $data = [
+            [
+                'id' => 10,
+                'title' => 'How many continents are there on earth?'
+            ],
+            [
+                'id' => 20,
+                'title' => 'When was php released?'
+            ],
+            [
+                'id' => 30,
+                'title' => 'Bill Gates really stolen a Steve Jobs idea?'
+            ]
+        ];
+        
+        $quiz = new Quiz();
+        $quiz->addQuestions($data);
 ```
 
 Adding alternatives to created question
