@@ -44,7 +44,17 @@ Adding questions to created quiz
 
 Adding alternatives to created questions
 ```
-
+        // Mocking a question
+        $data = [
+            'question_id' => 10,
+            'alternatives' => [
+                'five',
+                'six',
+                'seven',
+            ]
+        ];
+        
+        $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
 ```
 
 LET'S PLAY!
