@@ -20,13 +20,11 @@ class Quiz
         SessionService::set('quiz', $quiz);
     }
 
-    public function addAlternativesToQuestion($question_id, $alternatives)
+    public function addAlternativesToQuestion($questionId, $alternatives)
     {
-        $quiz = SessionService::get('quiz');
-        $questions = $quiz['questions'];
+        $key = $this->getKeyByQuestionId($questionId);
 
-        $key = array_search($question_id, array_column($questions, 'id'), false);
-
+        $questions = $this->getQuestions();
         $questions[$key]['alternatives'] = $alternatives['alternatives'];
 
         $quiz['questions'] = $questions;
@@ -39,5 +37,23 @@ class Quiz
         return SessionService::get('quiz');
     }
 
-}
+    public function getQuestions()
+    {
+        $quiz = SessionService::get('quiz');
+        return $quiz['questions'];
+    }
 
+    public function getQuestionById($questionId)
+    {
+        $questions = $this->getQuestions();
+        $key = $this->getKeyByQuestionId($questionId);
+
+        return $questions[$key];
+    }
+    
+    public function getKeyByQuestionId($questionId)
+    {
+        $questions = $this->getQuestions();
+        return array_search($questionId, array_column($questions, 'id'), false);
+    }
+}

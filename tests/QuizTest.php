@@ -13,7 +13,8 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
     public $quiz;
 
-    protected function setUp() {
+    protected function setUp()
+    {
         $this->quiz = new Quiz();
     }
 
@@ -22,6 +23,7 @@ class QuizTest extends \PHPUnit_Framework_TestCase
         $data = [
             'title' => 'The first quiz of all'
         ];
+
         $this->quiz->create($data);
 
         $this->assertNotEmpty($this->quiz->get());
@@ -46,8 +48,8 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
         $this->quiz->addQuestions($data);
 
-        $quiz = $this->quiz->get();
-        $this->assertNotEmpty($quiz['questions']);
+        $questions = $this->quiz->getQuestions();
+        $this->assertNotEmpty($questions);
     }
 
     public function testAddAlternativeToQuestion()
@@ -65,13 +67,8 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
         $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
 
-        $quiz = $this->quiz->get();
-        $key = array_search($data['question_id'], array_column($quiz['questions'], 'id'), false);
-        
-        $insertedQuestion = $quiz['questions'][$key];
-        
+        $insertedQuestion = $this->quiz->getQuestionById($data['question_id']);
         $this->assertArrayHasKey('alternatives', $insertedQuestion);
-
     }
     
     public function testAddAlternativesToQuestions()
@@ -114,10 +111,9 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
         $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
 
-        $quiz = $this->quiz->get();
-        $totalQuestions = count($quiz['questions']);
+        $questions = $this->quiz->getQuestions();
+        $totalQuestions = count($questions);
         $this->assertEquals($totalQuestions, 3);
-        
     }
 
     public function testGetQuiz()
