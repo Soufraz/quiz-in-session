@@ -43,6 +43,12 @@ class Quiz
         return $quiz['questions'];
     }
 
+    public function getCountQuestions()
+    {
+        $questions = $this->getQuestions();
+        return count($questions);
+    }
+
     public function getQuestionById($questionId)
     {
         $questions = $this->getQuestions();

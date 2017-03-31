@@ -111,9 +111,7 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
         $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
 
-        $questions = $this->quiz->getQuestions();
-        $totalQuestions = count($questions);
-        $this->assertEquals($totalQuestions, 3);
+        $this->assertEquals($this->quiz->getCountQuestions(), 3);
     }
 
     public function testGetQuiz()
