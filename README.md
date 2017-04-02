@@ -1,4 +1,4 @@
-# (release date: 2017-04-03)
+# (release date: 2017-04-10)
 # Composer quiz package to be used in session
 
 A simple composer quiz package that allows the creation of questions, alternatives and choice of answers in a very easy way.
