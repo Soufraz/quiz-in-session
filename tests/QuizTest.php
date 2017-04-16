@@ -147,4 +147,9 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue(empty($question));
     }
+
+    public function testGettingAllData()
+    {
+        $this->assertNotEmpty($this->quiz->getAnswers());
+    }
 }

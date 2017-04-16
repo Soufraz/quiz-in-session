@@ -102,4 +102,15 @@ class Quiz
 
         SessionService::set('quiz', $quiz);
     }
+
+    public function getAnswers()
+    {
+        $questions = $this->getQuestions();
+
+        foreach ($questions as $key => $question) {
+            unset($questions[$key]['alternatives']);
+        }
+
+        return $questions;
+    }
 }

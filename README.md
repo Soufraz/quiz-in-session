@@ -20,7 +20,7 @@ Creating quiz
         $quiz->create($data);
 ```
 
-Hey: All of the following examples we will assume that **$quiz** is already defined.
+Hey: All of the following examples we will assume that **$quiz** is already defined
 
 Adding questions to created quiz
 ```
@@ -68,15 +68,16 @@ Requesting next question and alternatives
 ```
     $question = $quiz->nextQuestion();
 ```
+Hey: If **$question** returns false then quiz is over
 
 Saving answer
 ```
     $quiz->setAnswerToQuestion($question, 2);
 ```
 
-Getting all data to save wherever you want
+Getting answers to save ind database or do wherever you want
 ```
-
+    $answers = $this->getQuestions();
 ```
 
 ### Used resources
