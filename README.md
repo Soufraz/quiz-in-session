@@ -12,72 +12,72 @@ composer require soufraz/quiz-in-session dev-master
 
 Creating quiz
 ```
-        $data = [
-            'title' => 'The first quiz of all'
-        ];
-        
-        $quiz = new Quiz();
-        $quiz->create($data);
+$data = [
+    'title' => 'The first quiz of all'
+];
+
+$quiz = new Quiz();
+$quiz->create($data);
 ```
 
 Hey: All of the following examples we will assume that **$quiz** is already defined
 
 Adding questions to created quiz
 ```
-        $data = [
-            [
-                'id' => 10,
-                'title' => 'How many continents are there on earth?'
-            ],
-            [
-                'id' => 20,
-                'title' => 'When was php released?'
-            ],
-            [
-                'id' => 30,
-                'title' => 'Bill Gates really stolen a Steve Jobs idea?'
-            ]
-        ];
-        
-        $quiz->addQuestions($data);
+$data = [
+    [
+        'id' => 10,
+        'title' => 'How many continents are there on earth?'
+    ],
+    [
+        'id' => 20,
+        'title' => 'When was php released?'
+    ],
+    [
+        'id' => 30,
+        'title' => 'Bill Gates really stolen a Steve Jobs idea?'
+    ]
+];
+
+$quiz->addQuestions($data);
 ```
 
 Adding alternatives to created questions
 ```
-        // Mocking a question
-        $data = [
-            'question_id' => 10,
-            'alternatives' => [
-                'five',
-                'six',
-                'seven',
-            ]
-        ];
-        
-        $quiz->addAlternativesToQuestion($data['question_id'], $data);
+// Mocking a question
+$data = [
+    'question_id' => 10,
+    'alternatives' => [
+        'five',
+        'six',
+        'seven',
+    ]
+];
+
+$quiz->addAlternativesToQuestion($data['question_id'], $data);
 ```
 
 LET'S PLAY!
 
 Getting quiz
 ```
-    $your_quiz = $quiz->get();
+$your_quiz = $quiz->get();
 ```
 
 Requesting next question and alternatives
 ```
-    $question = $quiz->nextQuestion();
+$question = $quiz->nextQuestion();
 ```
 Hey: If **$question** returns false then quiz is over
 
 Saving answer
 ```
-    $quiz->setAnswerToQuestion($question, 2);
+$quiz->setAnswerToQuestion($question, 2);
 ```
 
 Getting answers to save ind database or do wherever you want
 ```
-    $answers = $this->getQuestions();
+$answers = $this->getQuestions();
 ```
 
 ### Used resources
