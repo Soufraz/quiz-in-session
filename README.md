@@ -20,6 +20,8 @@ Creating quiz
         $quiz->create($data);
 ```
 
+Hey: All of the following examples we will assume that **$quiz** is already defined.
+
 Adding questions to created quiz
 ```
         $data = [
@@ -37,7 +39,6 @@ Adding questions to created quiz
             ]
         ];
         
-        $quiz = new Quiz();
         $quiz->addQuestions($data);
 ```
 
@@ -53,7 +54,6 @@ Adding alternatives to created questions
             ]
         ];
         
-        $quiz = new Quiz();
         $quiz->addAlternativesToQuestion($data['question_id'], $data);
 ```
 
@@ -61,13 +61,11 @@ LET'S PLAY!
 
 Getting quiz
 ```
-    $quiz = new Quiz();
     $your_quiz = $quiz->get();
 ```
 
 Requesting next question and alternatives
 ```
-    $quiz = new Quiz();
     $question = $quiz->nextQuestion();
 ```
 
