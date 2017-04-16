@@ -1,4 +1,3 @@
-# (release date: 2017-04-10)
 # Composer quiz package to be used in session
 
 A simple composer quiz package that allows the creation of questions, alternatives and choice of answers in a very easy way.
@@ -62,12 +61,14 @@ LET'S PLAY!
 
 Getting quiz
 ```
-
+    $quiz = new Quiz();
+    $your_quiz = $quiz->get();
 ```
 
 Requesting next question and alternatives
 ```
-
+    $quiz = new Quiz();
+    $question = $quiz->nextQuestion();
 ```
 
 Saving answer

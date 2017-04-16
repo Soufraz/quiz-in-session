@@ -67,8 +67,8 @@ class QuizTest extends \PHPUnit_Framework_TestCase
 
         $this->quiz->addAlternativesToQuestion($data['question_id'], $data);
 
-        $insertedQuestion = $this->quiz->getQuestionById($data['question_id']);
-        $this->assertArrayHasKey('alternatives', $insertedQuestion);
+        $question = $this->quiz->getQuestionById($data['question_id']);
+        $this->assertArrayHasKey('alternatives', $question);
     }
     
     public function testAddAlternativesToQuestions()
@@ -117,5 +117,11 @@ class QuizTest extends \PHPUnit_Framework_TestCase
     public function testGetQuiz()
     {
         $this->assertNotEmpty($this->quiz->get());
+    }
+
+    public function testGetNextQuestionWithAlternativesQuiz()
+    {
+        $question = $this->quiz->nextQuestion();
+        $this->assertNotEmpty($question);
     }
 }
