@@ -71,10 +71,10 @@ Requesting next question and alternatives
 
 Saving answer
 ```
-
+    $quiz->setAnswerToQuestion($question, 2);
 ```
 
-Getting all data to save where you want
+Getting all data to save wherever you want
 ```
 
 ```

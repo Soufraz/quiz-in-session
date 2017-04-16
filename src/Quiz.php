@@ -90,4 +90,16 @@ class Quiz
 
         return false;
     }
+
+    public function setAnswerToQuestion($question, $alternativeIndex)
+    {
+        $index = $this->getQuestionIndexById($question['id']);
+
+        $questions = $this->getQuestions();
+        $questions[$index]['answer'] = $alternativeIndex;
+
+        $quiz['questions'] = $questions;
+
+        SessionService::set('quiz', $quiz);
+    }
 }

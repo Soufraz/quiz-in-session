@@ -124,4 +124,14 @@ class QuizTest extends \PHPUnit_Framework_TestCase
         $question = $this->quiz->nextQuestion();
         $this->assertNotEmpty($question);
     }
+
+    public function testSavingAnswer()
+    {
+        $question = $this->quiz->nextQuestion();
+        $this->quiz->setAnswerToQuestion($question, 2);
+
+        $questionAnswered = $this->quiz->getQuestionById($question['id']);
+
+        $this->assertEquals($questionAnswered['answer'], 2);
+    }
 }
