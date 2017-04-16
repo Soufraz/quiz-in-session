@@ -4,7 +4,7 @@ A simple composer quiz package that allows the creation of questions, alternativ
 
 ## Install
 ```bash
-composer require soufraz/quiz-in-session dev-master
+composer require soufraz/quiz-in-session master
 ```
 
 
